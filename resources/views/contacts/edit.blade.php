@@ -14,7 +14,7 @@
         </div>
         <br /> 
         @endif
-        <form method="post" action="{{ route('contacts.update', $contact->id) }}" enctype="multipart/form-data"> 
+        <form method="post" action="{{ route('contacts.update', ['contacts' => $contact->id]) }}" enctype="multipart/form-data"> 
             @method('PATCH') 
             @csrf
             <div class="form-group">

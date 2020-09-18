@@ -18,7 +18,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($contacts ?? '' as $contact)
+        @foreach($contacts as $contact)
 
 
         <tr>
@@ -30,10 +30,10 @@
             <td>{{$contact->address}}</td>
             
             <td>
-            <a href="contacts/view/{{$contact->id}}" class="btn btn-success">View</a>
+            <a href="{{ route('contacts.view', ['contacts' => $contact->id])}}" class="btn btn-success">View</a>
             </td>
             <td>
-                <a href="{{ route('contacts.edit', $contact->id)}}" class="btn btn-primary">Edit</a>
+                <a href="{{ route('contacts.edit', ['contacts' => $contact->id])}}" class="btn btn-primary">Edit</a>
             </td>
             <td>
                 <form action="{{ route('contacts.destroy', $contact->id)}}" method="post">
