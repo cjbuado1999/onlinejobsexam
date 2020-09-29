@@ -18,24 +18,24 @@
           @csrf
           <div class="form-group">    
               <label for="first_name">Name:</label>
-              <input type="text" class="form-control" name="name"/>
+              <input type="text" class="form-control" name="name" required/>
           </div>
 
           <div class="form-group">
               <label for="last_name">Email:</label>
-              <input type="text" class="form-control" name="email"/>
+              <input type="email" class="form-control" name="email" required/>
           </div>
 
           <div class="form-group">
               <label for="email">Contact:</label>
-              <input type="text" class="form-control" name="contact"/>
+              <input type="text" class="form-control" name="contact" required/>
           </div>
           <div class="form-group">
               <label for="city">Address:</label>
-              <input type="text" class="form-control" name="address"/>
+              <input type="text" class="form-control" name="address" required/>
           </div>                       
           <div class="input-group">
-          <input type="file" class="form-control" name="image"/>
+          <input type="file" class="form-control" name="image" required/>
               <label for="image"></label>
               
           </div>       

@@ -14,27 +14,27 @@
         </div>
         <br /> 
         @endif
-        <form method="post" action="{{ route('contacts.update', ['contacts' => $contact->id]) }}" enctype="multipart/form-data"> 
+        <form method="post" action="{{ route('contacts.update', ['contact' => $contact->id]) }}" enctype="multipart/form-data"> 
             @method('PATCH') 
             @csrf
             <div class="form-group">
 
                 <label for="name">First Name:</label>
-                <input type="text" class="form-control" name="name" value={{ $contact->name }} />
+                <input type="text" class="form-control" name="name" value={{ $contact->name }} required/>
             </div>
 
             <div class="form-group">
                 <label for="last_name">Email:</label>
-                <input type="text" class="form-control" name="email" value={{ $contact->email }} />
+                <input type="email" class="form-control" name="email" value={{ $contact->email }} required/>
             </div>
 
             <div class="form-group">
                 <label for="email">Contact:</label>
-                <input type="text" class="form-control" name="contact" value={{ $contact->contact }} />
+                <input type="text" class="form-control" name="contact" value={{ $contact->contact }}required />
             </div>
             <div class="form-group">
                 <label for="city">Address:</label>
-                <input type="text" class="form-control" name="address" value={{ $contact->address }} />
+                <input type="text" class="form-control" name="address" value={{ $contact->address }}required />
             </div>
         
               <div class="form-group">

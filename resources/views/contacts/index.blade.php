@@ -30,10 +30,10 @@
             <td>{{$contact->address}}</td>
             
             <td>
-            <a href="{{ route('contacts.view', ['contacts' => $contact->id])}}" class="btn btn-success">View</a>
+            <a href="{{ route('contacts.view', ['contact' => $contact->id])}}" class="btn btn-success">View</a>
             </td>
             <td>
-                <a href="{{ route('contacts.edit', ['contacts' => $contact->id])}}" class="btn btn-primary">Edit</a>
+                <a href="{{ route('contacts.edit', ['contact' => $contact->id])}}" class="btn btn-primary">Edit</a>
             </td>
             <td>
                 <form action="{{ route('contacts.destroy', $contact->id)}}" method="post">
