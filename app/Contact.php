@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Contact extends Model
 {
@@ -15,6 +16,9 @@ class Contact extends Model
     //     'availability',
     //     'note'
     // ];
+
+        use SoftDeletes;
+        public $timestamps = false;
 
     protected $guarded = [];
 

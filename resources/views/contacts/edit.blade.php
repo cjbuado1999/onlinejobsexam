@@ -20,21 +20,21 @@
             <div class="form-group">
 
                 <label for="name">First Name:</label>
-                <input type="text" class="form-control" name="name" value={{ $contact->name }} required/>
+                <input type="text" class="form-control" name="name" value={{ $contact->name }} />
             </div>
 
             <div class="form-group">
                 <label for="last_name">Email:</label>
-                <input type="email" class="form-control" name="email" value={{ $contact->email }} required/>
+                <input type="email" class="form-control" name="email" value={{ $contact->email }} />
             </div>
 
             <div class="form-group">
                 <label for="email">Contact:</label>
-                <input type="text" class="form-control" name="contact" value={{ $contact->contact }}required />
+                <input type="text" class="form-control" name="contact" value={{ $contact->contact }} />
             </div>
             <div class="form-group">
                 <label for="city">Address:</label>
-                <input type="text" class="form-control" name="address" value={{ $contact->address }}required />
+                <input type="text" class="form-control" name="address" value={{ $contact->address }} />
             </div>
         
               <div class="form-group">

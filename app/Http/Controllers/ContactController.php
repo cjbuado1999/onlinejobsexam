@@ -5,6 +5,7 @@ use App\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreContact;
+use App\Http\Requests\EditContact;
 
 class ContactController extends Controller
 {
@@ -17,7 +18,7 @@ class ContactController extends Controller
     {
 
         $contacts = DB::table('contacts')
-            ->where('availability', 1)
+            ->where('deleted_at', null)
             ->get();
 
         return view('contacts.index', compact('contacts'));
@@ -41,6 +42,8 @@ class ContactController extends Controller
      */
     public function store(StoreContact $request)
     {
+
+        
         $contact = new Contact([
             'name' => $request->get('name'),
             'contact' => $request->get('contact'),
@@ -75,9 +78,12 @@ class ContactController extends Controller
      */
     public function show($id)
     {
+        $title = 'Contact';
+        Contact::where('id', $id)-> restore();
+        $contacts = Contact::all();
         //
-        $contact = Contact::find($id)
-        ->update(['availability' => 1]);
+        // $contact = Contact::find($id)
+        // ->update(['availability' => 1]);
 
         return redirect('/contacts')->with('success', 'Contact Restore!');
     }
@@ -101,7 +107,7 @@ class ContactController extends Controller
     public function deleted()
     {
         $contacts = DB::table('contacts')
-        ->where('availability', 0)
+        ->whereNotNull('deleted_at')
         ->get();
         return view('contacts.deleted', compact('contacts'));
     }
@@ -119,7 +125,7 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreContact $request, Contact $contact)
+    public function update(Request $request, Contact $contact)
     {
         // //
         // $request->validate([
@@ -157,9 +163,12 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        
-        $contact = Contact::find($id)
-            ->update(['availability' => 0]);
+        $title = 'Contact';
+        Contact::where('id', $id)-> delete();
+        $contacts = Contact::all();
+
+        // $contact = Contact::find($id)
+        //     ->update(['availability' => 0]);
 
         return redirect('/contacts')->with('success', 'Contact Soft Deleted!');
     }

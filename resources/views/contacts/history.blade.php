@@ -35,6 +35,8 @@
           <td>Name</td>
           <td>Contact</td>
           <td>Activity Log </td>
+          <td> is deleted? </td>
+          <td>Note </td>
 
         </tr>
     </thead>
@@ -47,7 +49,18 @@
             <td>{{$contact->name}} </td>
             <td>{{$contact->contact}}</td>
             <td> {{$contact->updated_at}}</td>
-
+            <td>   @if ($contact-> deleted_at == null)
+              Contact not deleted
+                @else
+                 Contact Deleted at  {{ $contact->deleted_at }} 
+                @endif
+            </td>
+            <td>   @if ($contact-> Note == "none")
+               No notes Added
+                  @else
+                   You added a note <br> - {{ $contact->Note }} -
+                  @endif
+              </td>
             </tbody>
             </table>
       

@@ -21,9 +21,9 @@
             <br><br><br>
             <center> <img src="{{asset('uploads/pictures/' . $contact -> image) }}" width = "500px" heigth = "100px" style = "border-radius: 50%;"> <br>  <br>
               @if ($contact-> Note == "none")
-            No comment
+           <i>You haven't add a comment yet to this contact </i>
             @else
-             Note! {{ $contact->Note }} 
+            <i> Note to this contact: </i> {{ $contact->Note }} 
             @endif</center>   
             <div class="form-group" style= "align:center">
          <br><br>
